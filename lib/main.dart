@@ -58,6 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Image.asset(
               'assets/images/' + pickedCard + '.jpg',
@@ -87,6 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
               }).toList(),
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 PlayingCardWidget(pickedCard: Constants.testStraightFlushHand[0].toString()),
                 PlayingCardWidget(pickedCard: Constants.testStraightFlushHand[1].toString()),
@@ -116,7 +118,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Container(
                 color: handState.contains("One Pair") ? Colors.green : Colors.red,
                 child: Text(" One Pair ")),
-            Text("TODO: IMPLEMENT THE REST.. "),
+            Text("TODO: IMPLEMENT HAND POINTS CALCULATION "),
           ],
         ),
       ),
