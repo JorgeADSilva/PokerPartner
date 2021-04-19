@@ -37,8 +37,15 @@ class _MyHomePageState extends State<MyHomePage> {
     print("------TEST-------");
     
     setState(() {
-      handState = Poker.isFlush(Constants.test1_hand) ? "Flush" : "None";
-      handState += Poker.isStraight(Constants.test1_hand) ? "Straight" : "None";
+      handState = Poker.isStraight(Constants.testStraightFlushHand) ? "Straight" : "None";
+      handState += Poker.isFourOfAKind(Constants.testStraightFlushHand) ? "Four of a Kind" : "None";
+      handState += Poker.isFullHouse(Constants.testStraightFlushHand) ? "Full House" : "None";
+      handState += Poker.isFlush(Constants.testStraightFlushHand) ? "Flush" : "None";
+      handState += Poker.isThreeOfAKind(Constants.testStraightFlushHand) ? "Three of a Kind" : "None";
+      handState += Poker.isTwoPairs(Constants.testStraightFlushHand) ? "Two Pairs" : "None";
+      handState += Poker.isOnePair(Constants.testStraightFlushHand) ? "One Pair" : "None";
+      print(Poker.valueHand(Constants.testStraightFlushHand));
+      print(Poker.valueHand(Constants.testOnePairhHand));
     });
   }
 
@@ -81,20 +88,34 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Row(
               children: [
-                PlayingCardWidget(pickedCard: Constants.test1_hand[0].toString()),
-                PlayingCardWidget(pickedCard: Constants.test1_hand[1].toString()),
-                PlayingCardWidget(pickedCard: Constants.test1_hand[2].toString()),
-                PlayingCardWidget(pickedCard: Constants.test1_hand[3].toString()),
-                PlayingCardWidget(pickedCard: Constants.test1_hand[4].toString()),
+                PlayingCardWidget(pickedCard: Constants.testStraightFlushHand[0].toString()),
+                PlayingCardWidget(pickedCard: Constants.testStraightFlushHand[1].toString()),
+                PlayingCardWidget(pickedCard: Constants.testStraightFlushHand[2].toString()),
+                PlayingCardWidget(pickedCard: Constants.testStraightFlushHand[3].toString()),
+                PlayingCardWidget(pickedCard: Constants.testStraightFlushHand[4].toString()),
               ],
             ),
+            Container(
+                color: handState.contains("Straight") ? Colors.green : Colors.red,
+                child: Text(" Straight ")),
+            Container(
+                color: handState.contains("Four of a Kind") ? Colors.green : Colors.red,
+                child: Text(" Four of a Kind ")),
+            Container(
+                color: handState.contains("Full House") ? Colors.green : Colors.red,
+                child: Text(" Full House ")),
             Container(
                 color: handState.contains("Flush") ? Colors.green : Colors.red,
                 child: Text(" Flush ")),
             Container(
-                color:
-                    handState.contains("Straight") ? Colors.green : Colors.red,
-                child: Text(" Straight ")),
+                color: handState.contains("Three of a Kind") ? Colors.green : Colors.red,
+                child: Text(" Three of a Kind ")),
+            Container(
+                color: handState.contains("Two Pairs") ? Colors.green : Colors.red,
+                child: Text(" Two Pairs ")),
+            Container(
+                color: handState.contains("One Pair") ? Colors.green : Colors.red,
+                child: Text(" One Pair ")),
             Text("TODO: IMPLEMENT THE REST.. "),
           ],
         ),

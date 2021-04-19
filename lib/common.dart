@@ -55,9 +55,16 @@ class Constants{
     "AH",
     "AS",
   ];
-  static List<PlayingCard> test1_hand = [
+  static List<PlayingCard> testStraightFlushHand = [
       PlayingCard.fromString("7h"),
       PlayingCard.fromString("8h"),
+      PlayingCard.fromString("Jh"),
+      PlayingCard.fromString("Th"),
+      PlayingCard.fromString("9h")
+    ];
+  static List<PlayingCard> testOnePairhHand = [
+      PlayingCard.fromString("7h"),
+      PlayingCard.fromString("7s"),
       PlayingCard.fromString("Jh"),
       PlayingCard.fromString("Th"),
       PlayingCard.fromString("9h")
